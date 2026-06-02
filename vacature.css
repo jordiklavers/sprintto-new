@@ -1,0 +1,175 @@
+/* Vacature CSS */
+@media (max-width: 768px) {
+    .vacature-contact_cta-bg {
+        transition: background-color 0.3s ease;
+    }
+
+    [data-cta-scrolling-started="false"] .vacature-contact_cta-bg {
+        background-color: white;
+    }
+
+    [data-cta-scrolling-started="false"] svg rect {
+        color: var(--vacature-brand);
+    }
+
+    [data-cta-scrolling-started="false"] svg path {
+        stroke: white;
+    }
+
+    [data-cta-scrolling-started="false"] .vacature-contact_p {
+        color: var(--vacature-brand);
+    }
+
+    [data-cta-scrolling-started="true"] .vacature-contact_cta-bg {
+        background-color: var(--vacature-brand);
+    }
+}
+
+/* [] ----- OSMO Flick Cards  ----- [] */
+[data-flick-cards-dragger] {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: auto;
+    touch-action: pan-y;
+}
+
+/* Position Slides (also in Webflow Designer) */
+[data-flick-cards-item-status] .flick-card__media,
+:is(.wf-design-mode, .w-editor) .flick-card__media {
+    transition: opacity 0.2s ease;
+    opacity: 0.5;
+}
+
+[data-flick-cards-item-status="2-before"] .flick-card__media,
+[data-flick-cards-item-status="2-after"] .flick-card__media,
+:is(.wf-design-mode, .w-editor) .flick-group__item:nth-child(2) .flick-card__media,
+:is(.wf-design-mode, .w-editor) .flick-group__item:nth-last-child(1) .flick-card__media {
+    transition: opacity 0.2s ease;
+    opacity: 0.75;
+}
+
+[data-flick-cards-item-status="active"] .flick-card__media,
+:is(.wf-design-mode, .w-editor) .flick-group__item:nth-child(1) .flick-card__media {
+    opacity: 1;
+}
+
+:is(.wf-design-mode, .w-editor) .flick-group__item:nth-child(1) {
+    z-index: 4;
+}
+
+:is(.wf-design-mode, .w-editor) .flick-group__item:nth-child(2) {
+    transform: translate(25%, 1%) rotate(10deg) scale(0.9, 0.9);
+    z-index: 3;
+}
+
+:is(.wf-design-mode, .w-editor) .flick-group__item:nth-child(3) {
+    transform: translate(45%, 5%) rotate(15deg) scale(0.8, 0.8);
+    z-index: 2;
+}
+
+:is(.wf-design-mode, .w-editor) .flick-group__item:nth-last-child(1) {
+    transform: translate(-25%, 1%) rotate(-10deg) scale(0.9, 0.9);
+    z-index: 3;
+}
+
+:is(.wf-design-mode, .w-editor) .flick-group__item:nth-last-child(2) {
+    transform: translate(-45%, 5%) rotate(-15deg) scale(0.8, 0.8);
+    z-index: 2;
+}
+
+/* Animate Button */
+[data-flick-cards-item-status] .flick-card__btn,
+:is(.wf-design-mode, .w-editor) .flick-group__item .flick-card__btn {
+    transition: opacity 0.4s cubic-bezier(0.625, 0.05, 0, 1),
+        1s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    transform: translate(0%, 50%) rotate(0.001deg);
+}
+
+[data-flick-cards-item-status="active"] .flick-card__btn,
+:is(.wf-design-mode, .w-editor) .flick-group__item:nth-child(1) .flick-card__btn {
+    opacity: 1;
+    transform: translate(0%, 0%) rotate(0.001deg);
+}
+
+/* [] ----- BUNNY PLAYER BASIC ----- [] */
+/* Animation */
+[data-bunny-player-init] :is(.bunny-player__placeholder,
+    .bunny-player__dark,
+    .bunny-player__playpause,
+    .bunny-player__loading) {
+    transition: opacity 0.3s linear, visibility 0.3s linear;
+}
+
+/* Placeholder */
+[data-bunny-player-init][data-player-status="playing"] .bunny-player__placeholder,
+[data-bunny-player-init][data-player-status="paused"] .bunny-player__placeholder,
+[data-bunny-player-init][data-player-activated="true"][data-player-status="ready"] .bunny-player__placeholder {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Dark Overlay */
+[data-bunny-player-init][data-player-status="paused"] .bunny-player__dark,
+[data-bunny-player-init][data-player-status="playing"][data-player-hover="active"] .bunny-player__dark {
+    opacity: 0.3;
+}
+
+[data-bunny-player-init][data-player-status="playing"] .bunny-player__dark {
+    opacity: 0;
+}
+
+/* Play/Pause */
+[data-bunny-player-init][data-player-status="playing"] .bunny-player__playpause,
+[data-bunny-player-init][data-player-status="loading"] .bunny-player__playpause {
+    opacity: 0;
+}
+
+[data-bunny-player-init][data-player-status="playing"][data-player-hover="active"] .bunny-player__playpause {
+    opacity: 1;
+}
+
+[data-bunny-player-init][data-player-status="playing"] .bunny-player__play-svg,
+[data-bunny-player-init][data-player-status="loading"] .bunny-player__play-svg {
+    display: none;
+}
+
+[data-bunny-player-init][data-player-status="playing"] .bunny-player__pause-svg,
+[data-bunny-player-init][data-player-status="loading"] .bunny-player__pause-svg {
+    display: block;
+}
+
+/* Loading */
+[data-bunny-player-init][data-player-status="loading"] .bunny-player__loading {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Cover Mode */
+[data-bunny-player-init][data-player-update-size="cover"] {
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+[data-bunny-player-init][data-player-update-size="cover"] [data-player-before] {
+    display: none;
+}
+
+[data-bunny-player-init][data-player-update-size="cover"][data-player-fullscreen="false"] .bunny-player__video {
+    object-fit: cover;
+}
+
+.centered-slider-wrapper .vacature-header_bunny-player {
+    height: 100%;
+}
+
+.centered-slider-wrapper .bunny-player__playpause {
+    transition: transform 0.3s cubic-bezier(0.625, 0.05, 0, 1);
+}
+
+.centered-slider-wrapper:hover .bunny-player__playpause {
+    transform: scale(0.9);
+}
